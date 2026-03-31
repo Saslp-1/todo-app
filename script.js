@@ -127,7 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateTaskCount() {
         const activeTasks = tasks.filter(t => !t.completed).length;
-        taskCount.textContent = `${activeTasks} task${activeTasks !== 1 ? 's' : ''} remaining`;
+        const completedTasks = tasks.filter(t => t.completed).length;
+        taskCount.innerHTML = `${completedTasks} completed &bull; ${activeTasks} remaining`;
     }
 
     function saveTasks() {
